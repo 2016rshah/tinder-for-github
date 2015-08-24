@@ -1,2 +1,5 @@
 <h3>User</h3>
 <p>Name: <%= @user.name if @user.name %></p>
+<% for repo in @repos %>
+	<p><strong><%= repo.name %></strong>: <%= repo.description %></p>
+<% end %>

@@ -16,12 +16,12 @@
   "env": {
     "OMNIAUTH_PROVIDER_KEY": {
       "description": "Credentials from Twitter, Facebook, or another provider.",
-      "value": "some_long_key",
+      "value": "",
       "required": false
     },
     "OMNIAUTH_PROVIDER_SECRET": {
       "description": "Credentials from Twitter, Facebook, or another provider.",
-      "value": "some_long_key",
+      "value": "",
       "required": false
     },
     "RAILS_ENV": "production"

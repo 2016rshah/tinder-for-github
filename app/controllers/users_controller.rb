@@ -8,6 +8,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    puts @user.inspect
+
+    github = Github.new
+
+    @repos = github.repos.list user: @user.username 
+
   end
+
 
 end

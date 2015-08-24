@@ -16,6 +16,8 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'pg'
 gem 'simple_form'
+gem 'figaro'
+gem "github_api"
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
