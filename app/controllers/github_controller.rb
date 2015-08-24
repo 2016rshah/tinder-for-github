@@ -1,7 +1,7 @@
 class GithubController < ApplicationController
 
   def authorize
-    address = github.authorize_url redirect_uri: 'http://localhost:3000/github/callback', scope: 'public_repo'
+    address = github.authorize_url redirect_uri: 'http://localhost:3000/github/callback', scopes: ['public_repo','user']
     redirect_to address
   end
 
@@ -12,15 +12,7 @@ class GithubController < ApplicationController
     
     session[:token] = token
 
-    redirect_to action: "index"
-  end
-
-  def index
-    token = session[:token]
-    starring = Github::Client::Activity::Starring.new oauth_token: token
-
-    @token = token
-
+    redirect_to root_directory
   end
 
   private

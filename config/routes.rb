@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  resources :projects
+  post '/projects/:id/' => 'projects#star'
+
   resources :users
-  root to: 'visitors#index'
+  root to: 'projects#index'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin
   get '/signout' => 'sessions#destroy', :as => :signout
@@ -8,5 +11,4 @@ Rails.application.routes.draw do
 
   get '/github/authorize/' => 'github#authorize'
   get '/github/callback/' => 'github#callback'
-  get '/github/' => 'github#index'
 end
