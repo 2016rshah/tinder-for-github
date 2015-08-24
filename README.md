@@ -1,50 +1,11 @@
-Tinder For Github
-================
+#Tinder of Github!
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+Swipe right for projects you like. Swipe left if you don't. Simple, right?
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+#Wait why?
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
+The idea is that there are lots of projects on github that you might want to star, but would never even find. And also you want to show your projects to people who might like it and get stars. So you go through other people's projects and swipe. Then, if you and someone else both swipe right on each other's projects, you both get a star. If one of you swipe left, no harm done. 
 
-Problems? Issues?
------------
+#Please note:
 
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
-Ruby on Rails
--------------
-
-This application requires:
-
-- Ruby 2.2.1
-- Rails 4.2.1
-
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
-
-Getting Started
----------------
-
-Documentation and Support
--------------------------
-
-Issues
--------------
-
-Similar Projects
-----------------
-
-Contributing
-------------
-
-Credits
--------
-
-License
--------
+In case you haven't noticed, I'm still working on the project. But feel free to contribute if you want the project to get done faster!
