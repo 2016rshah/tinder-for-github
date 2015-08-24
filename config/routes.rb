@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   get '/github/authorize/' => 'github#authorize'
   get '/github/callback/' => 'github#callback'
+  get '/github/' => 'github#index'
 end

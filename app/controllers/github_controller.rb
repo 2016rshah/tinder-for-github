@@ -9,13 +9,18 @@ class GithubController < ApplicationController
     authorization_code = params[:code]
     access_token = github.get_token authorization_code
     token = access_token.token   # => returns token value
+    
+    session[:token] = token
 
-    puts token 
+    redirect_to action: "index"
+  end
+
+  def index
+    token = session[:token]
     starring = Github::Client::Activity::Starring.new oauth_token: token
-    starring.star '2016rshah', 'blog'
-    puts "starred!"
 
-    redirect_to root_path
+    @token = token
+
   end
 
   private
