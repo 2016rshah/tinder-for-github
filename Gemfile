@@ -43,3 +43,21 @@ group :development, :test do
   gem 'spring'
 end
 
+
+gem 'high_voltage'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'pg'
+gem 'simple_form'
+
+group :development do
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'rails_apps_pages'
+  gem 'rails_layout'
+end
+
+group :production do
+  gem 'rails_12factor'
+end
+
