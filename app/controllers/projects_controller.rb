@@ -1,12 +1,24 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :star]
-  before_action :set_token, only: [:star]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :star, :unstar]
+  before_action :set_token, only: [:star, :unstar, :index]
   before_action :authenticate_user!
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    starring = Github::Client::Activity::Starring.new oauth_token: @token
+
+    pjs = Project.all
+    @projects_unstarred = Array.new
+    @projects_starred = Array.new
+    for p in pjs
+      if not starring.starring? p.username, p.title
+        @projects_unstarred.push p
+      else
+        @projects_starred.push p
+      end
+    end
+
   end
 
   # GET /projects/1
@@ -82,10 +94,17 @@ class ProjectsController < ApplicationController
   end
 
   def star
-    
     starring = Github::Client::Activity::Starring.new oauth_token: @token
 
     starring.star @project.username, @project.title
+
+    redirect_to @project
+  end
+
+  def unstar 
+    starring = Github::Client::Activity::Starring.new oauth_token: @token
+
+    starring.unstar @project.username, @project.title
 
     redirect_to @project
   end
@@ -105,7 +124,7 @@ class ProjectsController < ApplicationController
       if session[:token]
         @token = session[:token]
       else
-        redirect_to "/github/authorize" and return
+        redirect_to "/github/authorize"
       end
     end
 end

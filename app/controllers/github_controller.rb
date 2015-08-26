@@ -1,7 +1,8 @@
 class GithubController < ApplicationController
 
   def authorize
-    address = github.authorize_url redirect_uri: 'http://localhost:3000/github/callback', scopes: ['public_repo','user']
+    rd = ENV["CALLBACK_URL"] + 'github/callback'
+    address = github.authorize_url redirect_uri: rd, scopes: ['public_repo','user']
     redirect_to address
   end
 
@@ -11,6 +12,10 @@ class GithubController < ApplicationController
     token = access_token.token   # => returns token value
     
     session[:token] = token
+
+    # Make sure the token works.
+    starring = Github::Client::Activity::Starring.new oauth_token: token
+    starring.star "2016rshah", "tinder-for-github"
 
     redirect_to root_directory
   end
